@@ -1,386 +1,134 @@
-# Week2_Monday
+#Outline for Monday 9/21
+- Clone this repository
+- Review of variables, data types, arrays, and console
+- Introduce functions
+- Function exercise
 
-## Create an array
+##Review
+https://github.com/calebatwood/Week1_Wednesday
+
+## Defining a function
 
 ```javascript
-var meals = ['breakfast', 'lunch', 'dinner'] ;
+var greet = function() {
+  console.log("Hello World");
+};
+
+greet();
+
 ```
 
-## Empty an array
+## Defining a function with a parameter
 
 ```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-meals.length = 0
+var greeting = function(firstName) {
+  // anything inside of here will execute when the function is called
+  console.log("Good morning " + firstName);
+};
+
+var name = "Alfie";
+var name2 = "Rowan";
+greeting(name);
+greeting(name2);
 ```
 
-## Clone an array
+## Why use functions?
+
+### Let's greet some instructors
 
 ```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
+var instructor = "Caleb";
+console.log("Hello " + instructor); // Hello Caleb
 
-var copy = meals.slice();
-// ['breakfast', 'lunch', 'dinner']
+var instructor = "Jenny";
+console.log("Hello " + instructor); // Hello Jenny
 ```
 
-## Get last item
+### Let's greet some students
 
 ```javascript
+var student = "Robby";
+console.log("Hello " + student);  // Hello Robby
 
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals[meals.length - 1];
-// 'dinner'
+var student = "Ariel";
+console.log("Hello " + student); // Hello Ariel
 ```
 
-Or
+## So what does this have to do with functions?
+
+The questions we should be asking are:
+
+  1. Did we repeat ourselves in our code?
+  2. Can we make our program simpler?
+  3. Can we make our program easier to maintain?
+
+![](http://www.buyog.com/talks/utahjs/bart-dry.png)
 
 ```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-meals.slice(-1)[0];
-// 'dinner'
+var greeting = function(person) {
+  // We can avoid re-writing the same code by placing the repeated code inside of a function
+  console.log("Hello " + person);
+};
+
+// Now let's greet some instructors...
+greeter("Caleb");
+greeter("Jenny");
+
+// ... and some students.
+greeter("David");
+greeter("Liz");
 ```
 
-## Remove first item
+###Functions make our code easier to maintain
 
 ```javascript
+var greeting = function(person) {
+  // With just 1 change, we can adjust our program output
+  console.log("Hola " + person);
+};
 
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.shift();
-// 'breakfast'
-
-meals;
-// ['lunch', 'dinner']
+// Now let's greet some people...
+greeter("Bernie Sanders");
+greeter("Donald Trump");
 ```
 
-## Remove last item
+
+## Defining a function with two parameters
 
 ```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
+var greeting = function (name, question) {
+  // anything inside of here will execute when called
+  console.log("Good morning", name, question);
+  console.log("name:", name);
+  console.log("question:", question);
+};
 
-meals.pop();
-// 'dinner'
+var name = "Bernie";
+var question = "how is the campaign?";
+greeting(name, question);
 
-meals;
-// ['breakfast', 'lunch'];
 ```
 
-## Add new item(s) to beginning
-
-```javascript
-var meals = ['lunch', 'dinner'];
-
-meals.unshift('breakfast');
-// 3 - the array length
-
-meals;
-// ['breakfast', 'lunch', 'dinner']
-```
-
-## Add new item(s) to end
+## Returning values
+The keyword `return` halts the execution of the function and returns the desired value for use in the rest of your code.
 
 ```javascript
 
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.push('supper');
-// 2
-
-meals;
-// ['breakfast', 'lunch', 'dinner', 'supper'];
-```
-
-## Overwrite item at a specific index
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals[1] = 'brunch';
-// ['breakfast', 'brunch', 'dinner'];
-```
-
-Or
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.splice(1, 1, 'brunch');
-```
-
-## Add new item(s) at a specific index
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.splice(1, 0, 'brunch', 'more brunch');
-// ['breakfast', 'brunch', 'more brunch', 'lunch', 'dinner']
-```
-
-## Remove single item at a specific index
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.splice(1, 1);
-// ['lunch']
-
-meals;
-// ['breakfast', 'dinner']
-```
-
-## Remove several items
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.splice(1, 2);
-// ['breakfast']
-
-meals;
-// ['breakfast']
-```
-
-## Reverse an array
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.reverse();
-// ['dinner', 'lunch', 'breakfast'];
-```
-
-## Delimit an array
-
-```javascript
-
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-meals.join(' AND ');
-// 'breakfast AND lunch AND dinner'
-```
-
-## Sort in alphabetical order
-
-```javascript
-
-var meals = ['dinner', 'supper', 'breakfast', 'lunch'];
-
-meals.sort();
-// ['breakfast', 'dinner', 'lunch', 'supper']
-```
-
-## Sort in numerical order
-
-```javascript
-var numbers = [1438,2605,794,3947,6241,11745,2585];
-
-numbers.sort(function(a, b) {
-    return a - b;
-});
-// [794,1438,2585,2605,3947,6241,11745]
-```
-
-## Join two arrays together
-
-```javascript
-var dayTimeMeals = ['breakfast', 'lunch'];
-var nightTimeMeals = ['merienda', 'dinner'];
-
-var allTheMeals = dayTimeMeals.concat(nightTimeMeals);
-// ['breakfast', 'lunch', 'merienda', 'dinner']
-```
-
-## Copy specific item(s)
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner', 'supper'];
-
-nightTimeMeals = meals.slice(2,4);
-// ['dinner', 'supper']
-```
-
-## Augment items within an array
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-var type = ['king', 'prince', 'pauper'];
-
-meals.map(function(item, i) {
-  return item + ' like a ' + type[i];
-});
-// ["breakfast like a king", "lunch like a prince", "dinner like a pauper"]
-```
-
-## Return true if every item meets a condition
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner', 'supper'];
-
-meals.every(function(item){ return item.length > 0 });
-// true
-
-meals.every(function(item){ return item.length > 6 });
-// false
-```
-
-## Return true if at least one item matches a condition
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner', 'supper'];
-
-meals.some(function(item){ return item === 'lunch';});
-// true
-
-meals.some(function(item){ return item === 'burgers!!';});
-//false
-```
-
-## Execute a function once per array item
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner', 'supper'];
-
-meals.forEach(function(currentValue, index, arr){
-  console.log(index, currentValue, arr);
-});
-```
-
-## Filter an array
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner', 'supper'];
-
-meals.filter(function(item) {
-  return item !== 'breakfast';
-});
-// ['lunch', 'dinner', 'supper'];
-```
-## Detect an array
-
-### ES4 and below
-
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-function isArray(arr) {
-  return !!(Object.prototype.toString.call(arr) === '[object Array]');
+var sum = function(x,y) {
+  return x + y;
 }
 
-isArray(meals);
-// true
+var summedNumber = sum(3,4);
+var yourNumber = 3;
+
+var newNumber = yourNumber + summedNumber;
+
+console.log(newNumber);
+
 ```
+##Named Functions vs Anonymous Functions
 
-### ES5 and above
+##Function Declaration Syntax vs Function Expression Syntax
 
-```javascript
-var meals = ['breakfast', 'lunch', 'dinner'];
-
-Array.isArray(meals)
-// true
-```
-
-## Simple FIFO queue
-
-```javascript
-var meals = ['breakfast', 'elevenses', 'brunch'];
-
-meals.shift();
-meals.push('lunch');
-
-// ['elevenses', 'brunch', 'lunch']
-
-meals.shift()
-meals.push('afternoon tea');
-
-// ['brunch', 'lunch', 'afternoon tea']
-// ... and so on ...
-```
-
-## Find index of an item
-
-### ES4 and below
-
-```javascript
-var meals = ['breakfast', 'elevenses', 'brunch'];
-
-function inArray(arr, item){
-  var found = -1,
-      len = arr.length,
-      i = len;
-
-  while(--i) {
-    if(arr[i] === query){
-      found = i;
-    }
-  }
-
-  return found;
-}
-
-inArray(meals, 'brunch');
-// 2 - the index of the item in the array
-
-inArray(meals, 'dinner');
-// -1
-```
-
-## ES5 and above
-
-```javascript
-var meals = ['breakfast', 'elevenses', 'brunch'];
-meals.indexOf('brunch');
-// 2
-```
-
-## Randomise an array
-
-```javascript
-function randomiseArray(arr) {
-    var buffer = [], start;
-
-    for(var i = arr.length; i >= arr.length && i > 0;i--) {
-        start = Math.floor(Math.random() * arr.length);
-        buffer.push(arr.splice(start, 1)[0])
-    };
-
-    return buffer;
-}
-
-randomiseArray([0,1,2,3,4]);
-// [2,1,0,3,4]
-
-randomiseArray([0,1,2,3,4]);
-// [3,2,1,4,0]
-
-randomiseArray([0,1,2,3,4]);
-// [1,2,4,0,3]
-```
-
-# Chaining methods
-
-```javascript
-var meals = [
-  {type: 'breakfast', name: 'Full English', calories: 1500},
-  {type: 'breakfast', name: 'Colacao', calories: 260},
-  {type: 'breakfast', name: 'Croissant and jam', calories: 520},
-  {type: 'breakfast', name: 'Granola with Greek yoghurt and blueberries', calories: 680},
-  {type: 'brinner', name: 'Shepherds Pie with strawberry yoghurt', calories: 915},
-  {type: 'brinner', name: 'Milky Porridge with beef and green beans', calories: 875},
-  {type: 'dinner', name: 'Phad Thai', calories: 750},
-  {type: 'dinner', name: 'Chicken Katsu curry and rice', calories: 830},
-];
-
-function getMealsByMaxCalories(meals, maxCalories, dailyAllowance) {
-  return meals
-    .filter(function(meal) {
-        return meal.calories <= maxCalories;
-    })
-    .map(function(meal) {
-        return {
-            name: meal.name,
-            calories: meal.calories,
-            percentageOfDailyAllowance: meal.calories / dailyAllowance * 100
-        }
-    });
-}
-
-getMealsByMaxCalories(meals, 850, 2000);
+##Putting the 'fun' in function()
+Function mini-exercise
