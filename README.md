@@ -5,7 +5,10 @@
 - Function exercise
 
 ##Review
-https://github.com/calebatwood/Week1_Wednesday
+[Wednesday's Material](https://github.com/calebatwood/Week1_Wednesday)
+- Data types
+- Variables
+- Arrays
 
 ## Defining a function
 
@@ -26,8 +29,8 @@ var greeting = function(firstName) {
   console.log("Good morning " + firstName);
 };
 
-var name = "Alfie";
-var name2 = "Rowan";
+var name = "Otis";
+var name2 = "Bodhi";
 greeting(name);
 greeting(name2);
 ```
@@ -74,9 +77,9 @@ var greeting = function(person) {
 greeter("Caleb");
 greeter("Jenny");
 
-// ... and some students.
-greeter("David");
-greeter("Liz");
+// ... and some cats.
+greeter("Otis");
+greeter("Bodhi");
 ```
 
 ###Functions make our code easier to maintain
