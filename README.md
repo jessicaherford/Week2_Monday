@@ -1,137 +1,79 @@
 #Outline for Monday 9/21
-- Clone this repository
-- Review of variables, data types, arrays, and console
-- Introduce functions
-- Function exercise
+- Review Wednesday's Exercise
+- Objects
 
 ##Review
 [Wednesday's Material](https://github.com/calebatwood/Week1_Wednesday)
-- Data types
-- Variables
-- Arrays
 
-## Defining a function
+## Objects
 
+[The DOCS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+Similar to an `Array`, an `Object` is a set of `key`/`value` pairs, with each key having to be unique. Variables inside an object are known as `properties`, while functions are known as 'methods'. The value of a property can be a string, number, boolean, array or another object. The value of a method is always a function.
+
+##Let's model an Object!!
+Group modeling of object.
+
+###Creating an Object using Literal Notation
 ```javascript
-var greet = function() {
-  console.log("Hello World");
+var hotel = {
+  name: 'Hilton',
+  rooms: 120,
+  booked: 93,
+  pool: true,
+  roomTypes: ['twin', 'full', 'queen', 'king'],
+  //we will cover functions in greater depth next week
+  availability: function() {
+    return this.rooms - this.booked;
+  }
+};
+```
+
+###Creating an Object using Constructor Notation
+```javascript
+var hotel = new Object();
+//properties
+hotel.name = 'Best Western';
+hotel.rooms = 65;
+hotel.booked = 34;
+//method
+hotel.availability = function() {
+  return this.rooms - this.booked;
 };
 
-greet();
-
 ```
 
-## Defining a function with a parameter
-
-```javascript
-var greeting = function(firstName) {
-  // anything inside of here will execute when the function is called
-  console.log("Good morning " + firstName);
-};
-
-var name = "Otis";
-var name2 = "Bodhi";
-greeting(name);
-greeting(name2);
-```
-
-## Why use functions?
-
-### Let's greet some instructors
-
-```javascript
-var instructor = "Caleb";
-console.log("Hello " + instructor); // Hello Caleb
-
-var instructor = "Jenny";
-console.log("Hello " + instructor); // Hello Jenny
-```
-
-### Let's greet some students
-
-```javascript
-var student = "Robby";
-console.log("Hello " + student);  // Hello Robby
-
-var student = "Ariel";
-console.log("Hello " + student); // Hello Ariel
-```
-
-## So what does this have to do with functions?
-
-The questions we should be asking are:
-
-  1. Did we repeat ourselves in our code?
-  2. Can we make our program simpler?
-  3. Can we make our program easier to maintain?
-
-![](http://www.buyog.com/talks/utahjs/bart-dry.png)
-
-```javascript
-var greeting = function(person) {
-  // We can avoid re-writing the same code by placing the repeated code inside of a function
-  console.log("Hello " + person);
-};
-
-// Now let's greet some instructors...
-greeter("Caleb");
-greeter("Jenny");
-
-// ... and some cats.
-greeter("Otis");
-greeter("Bodhi");
-```
-
-###Functions make our code easier to maintain
-
-```javascript
-var greeting = function(person) {
-  // With just 1 change, we can adjust our program output
-  console.log("Hola " + person);
-};
-
-// Now let's greet some people...
-greeter("Bernie Sanders");
-greeter("Donald Trump");
-```
-
-
-## Defining a function with two parameters
-
-```javascript
-var greeting = function (name, question) {
-  // anything inside of here will execute when called
-  console.log("Good morning", name, question);
-  console.log("name:", name);
-  console.log("question:", question);
-};
-
-var name = "Bernie";
-var question = "how is the campaign?";
-greeting(name, question);
-
-```
-
-## Returning values
-The keyword `return` halts the execution of the function and returns the desired value for use in the rest of your code.
-
+###Accessing an Object
+The properties and methods of an object can be accessed using `dot notation`. Properties can also be accessed using square brackets.
 ```javascript
 
-var sum = function(x,y) {
-  return x + y;
-}
-
-var summedNumber = sum(3,4);
-var yourNumber = 3;
-
-var newNumber = yourNumber + summedNumber;
-
-console.log(newNumber);
+var hotelName = hotel.name;
+// Hilton
+var availableRooms = hotel.availability;
+// 27
+var hotelName = hotel['name'];
+// Hilton
 
 ```
-##Named Functions vs Anonymous Functions
 
-##Function Declaration Syntax vs Function Expression Syntax
+###Updating and adding to an Object
+To add to or update the properties of an object, dot notation or square brackets can be used.
+```javascript
+hotel.pool = false; //sets the pool property to false
 
-##Putting the 'fun' in function()
-Function mini-exercise
+hotel.lounge = true; //adds a new lounge property with a value of true
+
+hotel;
+// {name: 'Hilton', rooms: 120, booked: 93, pool: false, lounge: true, availability: function(){....};}
+```
+
+###Deleting a property
+Use the 'delete' keyword followed by the object and property names. To clear the value of a property without deleting it, set its value to a blank string `''`
+```javascript
+delete hotel.pool; //deletes the pool property from the hotel object
+
+hotel.name = ''; //clears the value
+```
+
+##In Class Exercise
+Creating and manipulating objects.
