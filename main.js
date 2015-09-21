@@ -54,7 +54,7 @@ var invitees = { adults: [{
                          ]
                       };
 
-// 4. Access Penny's dinner choice.
+// 4. Access Penny's dinner choice (this will be the second item in his dinneChoice array)
 
 // 5. Access Pablo's table number.
 
@@ -101,8 +101,13 @@ var invitees = { adults: [{
                                   pages: 569,
                                   }
                 }]
+// 15a. Access the author of the first book.
+
+// 15b. Print the length of the author the the third book.
 
 // 16. To each book object variable, add a key of "dateRead" with a value of the year you read the book.
 // (Go ahead and make this up, too. Get wild.)
+
+// 17. Remove the second book from the books Array.
 
 // Bonus: Explain, in your own words, the difference between Literal Notation and Constructor.
