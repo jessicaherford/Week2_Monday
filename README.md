@@ -11,6 +11,18 @@
 
 Similar to an `Array`, an `Object` is a set of `key`/`value` pairs, with each key having to be unique. Variables inside an object are known as `properties`, while functions are known as 'methods'. The value of a property can be a string, number, boolean, array or another object. The value of a method is always a function.
 
+This might sound confusing.<br>
+![](http://www.reactiongifs.com/r/obs.gif)
+![](http://i.imgur.com/MKsfM.gif)
+
+You might be thinking "nope."<br>
+![](http://blogfiles.wfmu.org/KF/2011/03/30/gif_oprah_no.gif)
+
+But it will all make sense once you get started!
+![](http://1.bp.blogspot.com/-D0AZEIIv38c/UnuJutpY0XI/AAAAAAAAOtg/_-jUdt52FmE/s1600/oprah-crying.gif)
+![](http://i.imgur.com/yzkx5jx.gif)
+
+
 ##Let's model an Object!!
 Group modeling of object.
 
