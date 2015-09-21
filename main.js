@@ -60,7 +60,7 @@ var invitees = { adults: [{
 
 // 6. Access Lauren's seating specialConsideration.
 
-// 7. Access Billy's desert choice (this will be the third item in his dinneChoice array)
+// 7. Access Billy's dessert choice (this will be the third item in his dinneChoice array)
 
 // 8. Access Ada's allergies.
 
