@@ -18,7 +18,7 @@ This might sound confusing.<br>
 You might be thinking "nope."<br>
 ![](http://blogfiles.wfmu.org/KF/2011/03/30/gif_oprah_no.gif)
 
-But it will all make sense once you get started!
+But it will all make sense once you get started!<br>
 ![](http://1.bp.blogspot.com/-D0AZEIIv38c/UnuJutpY0XI/AAAAAAAAOtg/_-jUdt52FmE/s1600/oprah-crying.gif)
 ![](http://i.imgur.com/yzkx5jx.gif)
 
