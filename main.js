@@ -102,7 +102,7 @@ var invitees = { adults: [{
                                   }
                 }]
 
-// 16. To you array of objects variable, add a key of "dateRead" with a value of the year you read the book.
+// 16. To each book object variable, add a key of "dateRead" with a value of the year you read the book.
 // (Go ahead and make this up, too. Get wild.)
 
 // Bonus: Explain, in your own words, the difference between Literal Notation and Constructor.
